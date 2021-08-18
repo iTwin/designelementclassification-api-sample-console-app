@@ -10,7 +10,7 @@ The Design Element Classification sample is a simple command line app that illus
   - [Creating a test iModel](#creating-test-imodel)
   - [Client registration](#client-registration)
 - [Getting started](#getting-started)
-  - [Project Structure](#project-structure)
+  - [Project structure](#project-structure)
 
 ## Pre-requisites
 
@@ -73,7 +73,7 @@ You will receive a client id for the app, save that somewhere to be used later.
 
 - Run the project
   ```sh
-  npm start -- --client {CLIENT_ID} --project {PROJECT_ID} --iModelId {IMODEL_ID} --changeSetId {CHANGE_SET_ID}
+  npm start -- --clientId {CLIENT_ID} --projectId {PROJECT_ID} --iModelId {IMODEL_ID} --changeSetId {CHANGE_SET_ID}
   ```
 
 - Show help to see all available console app arguments
@@ -82,7 +82,7 @@ You will receive a client id for the app, save that somewhere to be used later.
   ```
 > **Tip.** To pass arguments to npm script use `--` to separate npm script target and arguments you wish to pass.
 
-### Project Structure
+### Project structure
 
 The full folder structure of this app is explained below:
 
@@ -94,7 +94,7 @@ The full folder structure of this app is explained below:
 | **.github**              | Contains Github related files                                                                |
 | **lib**                  | Contains the distributable (or output) from your TypeScript build. This is the code you ship |
 | **src**                  | Contains source code that will be compiled to the dist dir                                   |
-| **src/Main.ts**          | Main entry point for executing API requests to create report based on iModel data            |
+| **src/index.ts**         | Main entry point for executing API requests to create Design Element Classification run      |
 | package.json             | File that contains npm dependencies as well as build scripts                                 |
 | tsconfig.json            | Config settings for compiling server code written in TypeScript                              |
 | config.json              | Config settings for authentication and iModel data extraction related configurations         |

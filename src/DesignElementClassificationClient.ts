@@ -4,25 +4,24 @@
 *--------------------------------------------------------------------------------------------*/
 
 import { BentleyError } from "@bentley/bentleyjs-core";
-import { AuthorizedClientRequestContext, IncludePrefix, request, RequestOptions, Response, ResponseError } from "@bentley/itwin-client"
+import { AuthorizedClientRequestContext, IncludePrefix, request, RequestOptions, Response } from "@bentley/itwin-client"
 import {
-  MisclassificationModelsResponse,
-  MisclassificationStatusResponse,
-  MisclassificationResultResponse,
-  MisclassificationResultsResponse,
-  MisclassificationRunCreate,
-  MisclassificationRunResponse,
-  MisclassificationRunsResponse
-} from "./MisclassificationContracts";
+  DesignElementClassificationModelsResponse,
+  DesignElementClassificationStatusResponse,
+  DesignElementClassificationResultsResponse,
+  DesignElementClassificationRunCreate,
+  DesignElementClassificationRunResponse,
+  DesignElementClassificationRunsResponse
+} from "./DesignElementClassificationContracts";
 
-export namespace MisclassificationClient {
+export namespace DesignElementClassificationClient {
   let _config: { apiUri: string };
 
   export function initialize(apiUri: string) {
     _config = { apiUri };
   }
 
-  export async function getModels(requestContext: AuthorizedClientRequestContext): Promise<MisclassificationModelsResponse> {
+  export async function getModels(requestContext: AuthorizedClientRequestContext): Promise<DesignElementClassificationModelsResponse> {
     assertInitialized();
 
     const url = `${_config.apiUri}/designelementclassification/models`;
@@ -32,13 +31,10 @@ export namespace MisclassificationClient {
     };
 
     const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return response.body as MisclassificationModelsResponse;
-    else
-      throw new BentleyError(response.status, response.text);
+    return response.body as DesignElementClassificationModelsResponse;
   }
 
-  export async function getRuns(requestContext: AuthorizedClientRequestContext, projectId: string): Promise<MisclassificationRunsResponse> {
+  export async function getRuns(requestContext: AuthorizedClientRequestContext, projectId: string): Promise<DesignElementClassificationRunsResponse> {
     assertInitialized();
 
     const url = `${_config.apiUri}/designelementclassification/runs?projectId=${projectId}`;
@@ -48,13 +44,10 @@ export namespace MisclassificationClient {
     };
 
     const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return response.body as MisclassificationRunsResponse;
-    else
-      throw new BentleyError(response.status, response.text);
+    return response.body as DesignElementClassificationRunsResponse;
   }
 
-  export async function getRun(requestContext: AuthorizedClientRequestContext, runId: string): Promise<MisclassificationRunResponse> {
+  export async function getRun(requestContext: AuthorizedClientRequestContext, runId: string): Promise<DesignElementClassificationRunResponse> {
     assertInitialized();
 
     const url = `${_config.apiUri}/designelementclassification/runs/${runId}`;
@@ -64,13 +57,10 @@ export namespace MisclassificationClient {
     };
 
     const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return response.body as MisclassificationRunResponse;
-    else
-      throw new BentleyError(response.status, response.text);
+    return response.body as DesignElementClassificationRunResponse;
   }
 
-  export async function getRunStatus(requestContext: AuthorizedClientRequestContext, runId: string): Promise<MisclassificationStatusResponse> {
+  export async function getRunStatus(requestContext: AuthorizedClientRequestContext, runId: string): Promise<DesignElementClassificationStatusResponse> {
     assertInitialized();
 
     const url = `${_config.apiUri}/designelementclassification/runs/${runId}/status`;
@@ -80,13 +70,10 @@ export namespace MisclassificationClient {
     };
 
     const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return response.body as MisclassificationStatusResponse;
-    else
-      throw new BentleyError(response.status, response.text);
+    return response.body as DesignElementClassificationStatusResponse;
   }
 
-  export async function getRunResults(requestContext: AuthorizedClientRequestContext, runId: string): Promise<MisclassificationResultsResponse> {
+  export async function getRunResults(requestContext: AuthorizedClientRequestContext, runId: string): Promise<DesignElementClassificationResultsResponse> {
     assertInitialized();
 
     const url = `${_config.apiUri}/designelementclassification/runs/${runId}/results`;
@@ -96,10 +83,7 @@ export namespace MisclassificationClient {
     };
 
     const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return response.body as MisclassificationResultsResponse;
-    else
-      throw new BentleyError(response.status, response.text);
+    return response.body as DesignElementClassificationResultsResponse;
   }
 
   export async function downloadRunResult(requestContext: AuthorizedClientRequestContext, runId: string, resultName: string): Promise<string | undefined> {
@@ -112,13 +96,10 @@ export namespace MisclassificationClient {
     };
 
     const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return response.text;
-    else
-      throw new BentleyError(response.status, response.text);
+    return response.text;
   }
 
-  export async function createRun(requestContext: AuthorizedClientRequestContext, runConfig: MisclassificationRunCreate): Promise<MisclassificationRunResponse> {
+  export async function createRun(requestContext: AuthorizedClientRequestContext, runConfig: DesignElementClassificationRunCreate): Promise<DesignElementClassificationRunResponse> {
     assertInitialized();
 
     const url = `${_config.apiUri}/designelementclassification/runs/`;
@@ -132,13 +113,10 @@ export namespace MisclassificationClient {
     };
 
     const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return response.body as MisclassificationRunResponse;
-    else
-      throw new BentleyError(response.status, response.text);
+    return response.body as DesignElementClassificationRunResponse;
   }
 
-  export async function cancelRun(requestContext: AuthorizedClientRequestContext, runId: string): Promise<MisclassificationRunResponse> {
+  export async function cancelRun(requestContext: AuthorizedClientRequestContext, runId: string): Promise<DesignElementClassificationRunResponse> {
     assertInitialized();
 
     const url = `${_config.apiUri}/designelementclassification/runs/${runId}/cancel`;
@@ -148,10 +126,7 @@ export namespace MisclassificationClient {
     };
 
     const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return response.body as MisclassificationRunResponse;
-    else
-      throw new BentleyError(response.status, response.text);
+    return response.body as DesignElementClassificationRunResponse;
   }
 
   export async function deleteRun(requestContext: AuthorizedClientRequestContext, runId: string): Promise<void> {
@@ -163,11 +138,7 @@ export namespace MisclassificationClient {
       headers: getDefaultHeaders(requestContext)
     };
 
-    const response = await request(requestContext, url, options);
-    if (isResponseSuccess(response))
-      return;
-    else
-      throw new BentleyError(response.status, response.text);
+    await request(requestContext, url, options);
   }
 
   function getDefaultHeaders(requestContext: AuthorizedClientRequestContext): { [header: string]: string } {
@@ -179,10 +150,6 @@ export namespace MisclassificationClient {
 
   function assertInitialized() {
     if (!_config)
-      throw new BentleyError(0, "Call initialize() before using MisclassificationClient client");
-  }
-
-  function isResponseSuccess(response: Response): Boolean {
-    return response.status >= 200 && response.status < 300;
+      throw new BentleyError(0, "Call initialize() before using DesignElementClassificationClient client");
   }
 }
