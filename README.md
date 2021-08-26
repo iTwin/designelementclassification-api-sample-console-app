@@ -43,14 +43,6 @@ tutorial to create a Role and update it with `"permissions": ["MLRunInference"]`
 Once this is done and the Role is assigned to you, you can use any iModel inside your
 Project to finish this tutorial.
 
-### Creating a test iModel
-
-To successfully run this tool you will need to have an accessible iModel. If you don't have one already, [this guide](https://www.itwinjs.org/learning/tutorials/create-test-imodel-sample/) will help you to create it.
-
-Once iModel is created save projectId, iModelId and changeSetId for later use.
-
-> **Note!** Make sure you have Machine Learning API roles permission from the project. If you do not have, contact anyone who is project administrator to assign you the role.
-
 ### Client registration
 
 You need to register an Application to be able to access your data using this sample. If you don't have one already, follow next steps to create an application.
