@@ -120,4 +120,3 @@ The full folder structure of this app is explained below:
 | **src/index.ts**         | Main entry point for executing API requests to create Design Element Classification run      |
 | package.json             | File that contains npm dependencies as well as build scripts                                 |
 | tsconfig.json            | Config settings for compiling server code written in TypeScript                              |
-| config.json              | Config settings for authentication and iModel data extraction related configurations         |
