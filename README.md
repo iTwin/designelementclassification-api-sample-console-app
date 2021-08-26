@@ -7,7 +7,8 @@ The Design Element Classification sample is a simple command line app that illus
 ## Table of contents
 
 - [Pre-requisites](#pre-requisites)
-  - [Creating a test iModel](#creating-test-imodel)
+  - [Resources](#resources)
+  - [Permissions](#permissions)
   - [Client registration](#client-registration)
 - [Getting started](#getting-started)
   - [Project structure](#project-structure)
@@ -19,6 +20,28 @@ To build and run this app locally you will need a few things:
 - Install [Git](https://git-scm.com/)
 - Install [Node.js](https://nodejs.org/en/) v12 (must be greater than 12.10.x)
 - Install [VS Code](https://code.visualstudio.com/)
+
+### Resources
+
+To successfully run this tool you will need to have an accessible iModel. If you don't
+have one already, contact one of your Organization Administrators for access to an
+iModel or take some time to go through the following tutorials:
+
+- Create a [Project](https://developer.bentley.com/tutorials/create-and-query-projects-guide).
+- Crate an [empty iModel](https://developer.bentley.com/tutorials/create-empty-imodel/).
+- [Populate](https://developer.bentley.com/tutorials/synchronization-tutorial/) the iModel.
+
+### Permissions
+
+Use of the Design Element Classification APIs requires Project level Permissions. For
+these Permissions, you must be an Organization Administrator for the Organization that
+owns a given Project or have `administration_manage_roles` Permission assigned at the
+Project level. If you do not have admin access to the Project or iModel you would like
+to use, contact somebody who is a Project Administrator. As a Project Administrator,
+you can use APIs described in the [Manage Project Team Members](/tutorials/manage-project-team-members-guide/)
+tutorial to create a Role and update it with `"permissions": ["MLRunInference"]`.
+Once this is done and the Role is assigned to you, you can use any iModel inside your
+Project to finish this tutorial.
 
 ### Creating a test iModel
 
