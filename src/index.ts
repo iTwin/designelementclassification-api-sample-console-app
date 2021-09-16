@@ -1,3 +1,9 @@
+  
+/*---------------------------------------------------------------------------------------------
+* Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+* See LICENSE.md in the project root for license terms and full copyright notice.
+*--------------------------------------------------------------------------------------------*/
+
 import { DesignElementClassificationClient } from "./DesignElementClassificationClient";
 import { ElectronAuthorizationBackend } from "@bentley/electron-manager/lib/ElectronBackend";
 import { AuthorizedClientRequestContext } from "@bentley/itwin-client";
