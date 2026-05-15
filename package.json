@@ -15,7 +15,7 @@
   "dependencies": {
     "@bentley/backend-itwin-client": "^2.19.6",
     "@bentley/bentleyjs-core": "^2.19.6",
-    "@bentley/build-tools": "^2.19.6",
+    "@bentley/build-tools": "^2.19.53",
     "@bentley/ecschema-metadata": "^2.19.6",
     "@bentley/electron-manager": "^2.19.6",
     "@bentley/geometry-core": "^2.19.6",
